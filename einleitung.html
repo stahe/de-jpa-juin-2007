@@ -1,0 +1,797 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Persistenz in Java 5: Ein praktischer Leitfaden">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/de-jpa-juin-2007/einleitung.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="-jpa-entitaten.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1. Einleitung - Persistenz in Java 5: Ein praktischer Leitfaden</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Persistenz in Java 5: Ein praktischer Leitfaden";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-einleitung" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Persistenz in Java 5: Ein praktischer Leitfaden" class="md-header__button md-logo" aria-label="Persistenz in Java 5: Ein praktischer Leitfaden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Persistenz in Java 5: Ein praktischer Leitfaden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Einleitung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum Dunkelmodus wechseln"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Zum Dunkelmodus wechseln" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum hellen Modus wechseln"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Zum hellen Modus wechseln" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/de-jpa-juin-2007" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Persistenz in Java 5: Ein praktischer Leitfaden" class="md-nav__button md-logo" aria-label="Persistenz in Java 5: Ein praktischer Leitfaden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Persistenz in Java 5: Ein praktischer Leitfaden
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/de-jpa-juin-2007" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Willkommen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="einleitung.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-ziele" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Ziele
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-literaturverzeichnis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Literaturverzeichnis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-verwendete-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Verwendete Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-beispiel-e-herunterladen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Beispiel-E- herunterladen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-eclipse-projektkonfiguration-fur-die-beispiele" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5. -Eclipse-Projektkonfiguration für die Beispiele
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-jpa-entitaten.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.  JPA-Entitäten
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="jpa-in-einer-mehrschichtigen-architektur.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. JPA in einer mehrschichtigen Architektur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fazit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Fazit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anhange.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Anhänge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-einleitung">1. <span style="color: #365f91">Einleitung</span></h1>
+<h2 id="11-ziele">1.1. <span style="color: #4f81bd">Ziele</span></h2>
+<p>Das Dokument ist als PDF |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQDTu0nYA1oZTpMR-GGSETa1AYQ_LOtdvFSgxXHK7R777T4?e=hZmBCP">HIER</a>| verfügbar.</p>
+<p>Die Beispiele im Dokument sind |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBzEAmMYmfsS6hfv1vS5xTyAZXbc04wXWuR9E9VBNnyLaA?e=bfo9IO">HIER</a>| verfügbar.</p>
+<p>Ziel ist es, die wichtigsten Konzepte der Datenpersistenz unter Verwendung der JPA-API (Java Persistence API) zu erörtern. Nach der Lektüre dieses Dokuments und dem Ausprobieren der Beispiele sollte der Leser über die notwendigen Grundlagen verfügen, um dann auf eigenen Beinen stehen zu können.</p>
+<p>Die JPA-API ist relativ neu. Sie ist erst seit JDK 1.5 verfügbar. Die JPA-Schicht hat ihren Platz in einer mehrschichtigen Architektur. Betrachten wir eine recht gängige dreischichtige Architektur:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006870000011D90417578.png" width="680" height="116" style="display:inline-block; margin:4px;width:17.997cm;height:3.069cm;" class="odt-zoomable" data-zoom-src="images/10000000000006870000011D90417578.png" /></td></tr></table>
+
+<ul>
+<li>Schicht [1], hier als [ui] (User Interface) bezeichnet, ist die Schicht, die über eine Swing-GUI, eine Konsolenoberfläche oder eine Weboberfläche mit dem Benutzer interagiert. Ihre Aufgabe besteht darin, Daten vom Benutzer an Schicht [2] weiterzuleiten oder vom Benutzer bereitgestellte Daten dem Benutzer zu präsentieren.</li>
+<li>Schicht [2], hier als [business] bezeichnet, ist die Schicht, die die sogenannten Geschäftsregeln – also die anwendungsspezifische Logik – anwendet, ohne sich darum zu kümmern, woher die empfangenen Daten stammen oder wohin die erzeugten Ergebnisse gelangen.</li>
+<li>Schicht [3], hier als [DAO] (Data Access Object) bezeichnet, ist die Schicht, die Schicht [2] mit vorab gespeicherten Daten (Dateien, Datenbanken usw.) versorgt und einen Teil der von Schicht [2] bereitgestellten Ergebnisse speichert.</li>
+<li>Die [JDBC]-Schicht ist die in Java verwendete Standardschicht für den Zugriff auf Datenbanken. Diese wird gemeinhin als JDBC-Treiber des DBMS bezeichnet.</li>
+</ul>
+<p>Es wurden zahlreiche Anstrengungen unternommen, um Entwicklern das Schreiben dieser verschiedenen Schichten zu erleichtern. Unter diesen zielt JPA darauf ab, die Entwicklung der [DAO]-Schicht zu vereinfachen, die sogenannte persistente Daten verwaltet, daher auch der Name der API (Java Persistence API). Eine Lösung, die in den letzten Jahren in diesem Bereich an Bedeutung gewonnen hat, ist <strong>Hibernate</strong>:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006950000011E3D831AFC.png" width="680" height="115" style="display:inline-block; margin:4px;width:17.997cm;height:3.055cm;" class="odt-zoomable" data-zoom-src="images/10000000000006950000011E3D831AFC.png" /></td></tr></table>
+
+<p>Die [Hibernate]-Schicht befindet sich zwischen der vom Entwickler geschriebenen [DAO]-Schicht und der [JDBC]-Schicht. Hibernate ist ein ORM (Object-Relational Mapping), ein Werkzeug, das die relationale Welt der Datenbanken und die Welt der von Java manipulierten Objekte miteinander verbindet. Der Entwickler der [DAO]-Schicht sieht weder die [JDBC]-Schicht noch die Datenbanktabellen, deren Inhalt er nutzen möchte. Er sieht nur die Objektdarstellung der Datenbank, die von der [Hibernate]-Schicht bereitgestellt wird. Die Brücke zwischen den Datenbanktabellen und den von der [DAO]-Schicht manipulierten Objekten wird hauptsächlich auf zwei Arten hergestellt:</p>
+<ul>
+<li>über Konfigurationsdateien im XML-Stil</li>
+<li>durch Java-Annotationen im Code, eine Technik, die erst seit JDK 1.5 verfügbar ist</li>
+</ul>
+<p>Die [Hibernate]-Schicht ist eine Abstraktionsschicht, die so transparent wie möglich gestaltet ist. Das ideale Ziel ist es, dass der Entwickler der [DAO]-Schicht überhaupt nicht bemerkt, dass er mit einer Datenbank arbeitet. Dies ist möglich, wenn er nicht selbst die Konfiguration schreibt, die die relationale Welt und die Objektwelt miteinander verbindet. Die Konfiguration dieser Brücke ist recht heikel und erfordert etwas Erfahrung.</p>
+<p>Die [4]-Objektschicht, die die Datenbank widerspiegelt, wird als „Persistenzkontext“ bezeichnet. Eine auf Hibernate basierende [DAO]-Schicht führt Persistenzoperationen (CRUD: Create, Read, Update, Delete) an den Objekten im Persistenzkontext durch; diese Operationen werden von Hibernate in SQL-Anweisungen übersetzt. Für Datenbankabfragen (SQL SELECT) stellt Hibernate den Entwicklern eine HQL (Hibernate Query Language) zur Verfügung, um den Persistenzkontext [4] statt der Datenbank selbst abzufragen.</p>
+<p>Hibernate ist beliebt, aber komplex zu beherrschen. Die Lernkurve, die oft als einfach dargestellt wird, ist in Wirklichkeit ziemlich steil. Sobald man eine Datenbank mit Tabellen hat, die Eins-zu-Viele- oder Viele-zu-Viele-Beziehungen aufweisen, übersteigt die Konfiguration der Relational-zu-Objekt-Brücke die Fähigkeiten eines durchschnittlichen Anfängers. Konfigurationsfehler können dann zu Anwendungen mit schlechter Performance führen.</p>
+<p>In der kommerziellen Welt gab es ein Produkt namens Toplink, das Hibernate entsprach:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006C20000012271EFE4FA.png" width="680" height="114" style="display:inline-block; margin:4px;width:17.997cm;height:3.016cm;" class="odt-zoomable" data-zoom-src="images/10000000000006C20000012271EFE4FA.png" /></td></tr></table>
+
+<p>Angesichts des Erfolgs von ORM-Produkten beschloss Sun, der Entwickler von Java, eine ORM-Schicht mittels einer Spezifikation namens JPA zu standardisieren, die zusammen mit Java 5 veröffentlicht wurde. Die JPA-Spezifikation wurde sowohl von <strong>„ “ Toplink</strong> als auch von <strong>Hibernate</strong> implementiert. Toplink, das ursprünglich ein kommerzielles Produkt war, ist inzwischen Open Source. Mit JPA sieht die bisherige Architektur nun wie folgt aus:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006BD00000122CB1D6B40.png" width="680" height="114" style="display:inline-block; margin:4px;width:17.997cm;height:3.027cm;" class="odt-zoomable" data-zoom-src="images/10000000000006BD00000122CB1D6B40.png" /></td></tr></table>
+
+<p>Die [DAO]-Schicht interagiert nun mit der JPA-Spezifikation, einer Reihe von Schnittstellen. Entwickler haben von dieser Standardisierung profitiert. Früher mussten Entwickler, wenn sie ihre ORM-Schicht änderten, auch ihre [DAO]-Schicht ändern, die für die Interaktion mit einem bestimmten ORM geschrieben worden war. Jetzt schreiben sie eine [DAO]-Schicht, die mit einer JPA-Schicht interagiert. Unabhängig davon, welches Produkt die JPA-Schicht implementiert, bleibt die Schnittstelle zur [DAO]-Schicht dieselbe.</p>
+<p>Dieses Dokument stellt JPA-Beispiele aus verschiedenen Bereichen vor:</p>
+<ul>
+<li>Zunächst konzentrieren wir uns auf die Relational-Objekt-Brücke, die die ORM-Schicht aufbaut. Diese wird mithilfe von Java-5-Annotationen für Datenbanken erstellt, in denen wir Tabellenbeziehungen vom Typ<ul>
+<li>Eins-zu-Eins</li>
+<li>Eins-zu-Viele</li>
+<li>viele-zu-viele </li>
+</ul>
+</li>
+</ul>
+<p>Um diesen Bereich zu veranschaulichen, erstellen wir die folgenden Testarchitekturen:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006BF000001181CBAA76F.png" width="680" height="110" style="display:inline-block; margin:4px;width:17.997cm;height:2.917cm;" class="odt-zoomable" data-zoom-src="images/10000000000006BF000001181CBAA76F.png" /></td></tr></table>
+
+<p>Unsere Testprogramme werden Konsolenanwendungen sein, die die JPA-Schicht direkt abfragen. Dabei werden wir die wichtigsten Methoden der JPA-Schicht untersuchen. Wir werden in einer sogenannten „Java SE“-Umgebung (Standard Edition) arbeiten. JPA funktioniert sowohl in Java SE- als auch in Java EE5-Umgebungen (Enterprise Edition).</p>
+<ul>
+<li>Sobald wir sowohl die Konfiguration der Relational/Object-Brücke als auch die Verwendung der Methoden der JPA-Schicht beherrschen, kehren wir zu einer traditionelleren mehrschichtigen Architektur zurück:</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006F6000001712DB9AB08.png" width="680" height="141" style="display:inline-block; margin:4px;width:17.997cm;height:3.727cm;" class="odt-zoomable" data-zoom-src="images/10000000000006F6000001712DB9AB08.png" /></td></tr></table>
+
+<p>Der Zugriff auf die [JPA]-Schicht erfolgt über eine zweischichtige Architektur, die aus [Business]- und [DAO]-Schichten besteht. Zur Verknüpfung dieser Schichten wird das Spring-Framework [7] in Verbindung mit dem JBoss EJB3-Container verwendet.</p>
+<p>Wir haben bereits erwähnt, dass JPA sowohl in SE- als auch in EE5-Umgebungen verfügbar ist. Die Java EE5-Umgebung bietet zahlreiche Dienste für den Zugriff auf persistente Daten, darunter Verbindungspools, Transaktionsmanager und mehr. Für Entwickler kann es von Vorteil sein, diese Dienste zu nutzen. Die Java EE5-Umgebung ist noch nicht weit verbreitet (Stand: Mai 2007). Sie ist derzeit auf dem <em>Sun Application Server 9.x (Glassfish)</em> verfügbar. Ein Anwendungsserver ist im Wesentlichen ein Webanwendungsserver. Wenn Sie eine eigenständige grafische Anwendung mit Swing erstellen, können Sie die EE-Umgebung und die von ihr bereitgestellten Dienste nicht nutzen. Dies ist ein Problem. Es tauchen zunehmend „eigenständige“ EE-Umgebungen auf, d. h. solche, die außerhalb eines Anwendungsservers verwendet werden können. Dies ist bei JBoss EJB3 der Fall, das wir in diesem Dokument verwenden werden.</p>
+<p>In einer EE5-Umgebung werden die Schichten durch Objekte implementiert, die als EJBs (Enterprise Java Beans) bezeichnet werden. In früheren Versionen von EE galten EJBs (EJB 2.x) als schwer zu implementieren und zu testen und zeigten manchmal eine unzureichende Leistung. Es wird zwischen EJB 2.x-„Entity“-Beans und EJB 2.x-„Session“-Beans unterschieden. Kurz gesagt entspricht ein EJB 2.x-„Entity“ einer Zeile in einer Datenbanktabelle, und ein EJB 2.x-„Session“ ist ein Objekt, das zur Implementierung der [Business]- und [DAO]-Schichten einer mehrschichtigen Architektur verwendet wird. Einer der Hauptkritikpunkte an mit EJBs implementierten Schichten ist, dass sie nur innerhalb von EJB-Containern verwendet werden können, einem Dienst, der von der EE-Umgebung bereitgestellt wird. Dies erschwert das Unit-Testing. So würde im obigen Diagramm das Unit-Testing der mit EJBs erstellten [Business]- und [DAO]-Schichten die Einrichtung eines Anwendungsservers erfordern – ein recht umständlicher Vorgang, der den Entwickler nicht gerade dazu ermutigt, häufig Tests durchzuführen.</p>
+<p>Das Spring-Framework wurde als Antwort auf die Komplexität von EJB2 entwickelt. Spring stellt innerhalb einer SE-Umgebung eine beträchtliche Anzahl der Dienste bereit, die typischerweise von EE-Umgebungen bereitgestellt werden. So bietet Spring im Abschnitt „Datenpersistenz“, der uns hier interessiert, die Verbindungspools und Transaktionsmanager, die Anwendungen benötigen. Das Aufkommen von Spring hat eine Kultur der Unit-Tests gefördert, deren Durchführung plötzlich viel einfacher wurde. Spring ermöglicht die Implementierung von Anwendungsschichten unter Verwendung von Standard-Java-Objekten (POJOs, Plain Old/Ordinary Java Objects), wodurch deren Wiederverwendung in anderen Kontexten möglich wird. Schließlich integriert es zahlreiche Tools von Drittanbietern relativ transparent, insbesondere Persistenz-Tools wie Hibernate, iBatis, ...  </p>
+<p>Java EE 5 wurde entwickelt, um die Mängel der vorherigen EE-Spezifikation zu beheben. EJB 2.x hat sich zu EJB 3 weiterentwickelt. Dabei handelt es sich um POJOs, die mit Tags versehen sind, welche sie als spezielle Objekte kennzeichnen, wenn sie sich in einem EJB 3-Container befinden. Innerhalb des Containers kann das EJB 3 die Dienste des Containers (Verbindungspool, Transaktionsmanager usw.) nutzen. Außerhalb des EJB3-Containers wird das EJB3 zu einem Standard-Java-Objekt. Seine EJB-Annotationen werden ignoriert.</p>
+<p>Oben haben wir Spring und JBoss EJB3 als mögliche Infrastruktur (Framework) für unsere mehrschichtige Architektur dargestellt. Diese Infrastruktur stellt die Dienste bereit, die wir benötigen: einen Verbindungspool und einen Transaktionsmanager.</p>
+<ul>
+<li>Bei Spring werden die Schichten mithilfe von POJOs implementiert. Diese greifen über die Abhängigkeitsinjektion in diese POJOs auf die Dienste von Spring (Verbindungspool, Transaktionsmanager) zu: Beim Erstellen injiziert Spring Referenzen auf die Dienste, die sie benötigen.</li>
+<li>
+<p>JBoss EJB3 ist ein EJB-Container, der außerhalb eines Anwendungsservers ausgeführt werden kann. Sein Funktionsprinzip (aus Sicht des Entwicklers) ist analog zu dem für Spring beschriebenen. Wir werden nur wenige Unterschiede feststellen.</p>
+</li>
+<li>
+<p>Wir schließen dieses Dokument mit einem Beispiel für eine dreischichtige Webanwendung ab – einfach, aber repräsentativ:</p>
+</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000071C0000016E67BAC4C9.png" width="680" height="137" style="display:inline-block; margin:4px;width:17.997cm;height:3.62cm;" class="odt-zoomable" data-zoom-src="images/100000000000071C0000016E67BAC4C9.png" /></td></tr></table>
+
+<h2 id="12-literaturverzeichnis">1.2. <span style="color: #4f81bd">Literaturverzeichnis</span></h2>
+<p>[<strong>ref1</strong>]:  <strong>Java Persistence with Hibernate, von Christian Bauer und Gavin King, erschienen bei Manning</strong>.</p>
+<p>[<strong>ref1</strong>] ist das Dokument, das als Grundlage für den Folgenden diente. Es handelt sich um ein umfassendes, über 800 Seiten starkes Buch über die Verwendung des Hibernate-ORM in zwei verschiedenen Kontexten: mit oder ohne JPA. Die Verwendung von Hibernate ohne JPA ist für Entwickler, die JDK 1.4 oder früher verwenden, tatsächlich nach wie vor relevant, da JPA erst mit JDK 1.5 eingeführt wurde.</p>
+<p>Nachdem ich mehr als drei Viertel des Buches gelesen und den Rest überflogen hatte, fiel mir auf, dass alles in diesem Werk nützlich war. Der erfahrene Hibernate-Anwender dürfte mit fast allen Informationen vertraut sein, die auf den 800 Seiten zu finden sind. Christian Bauer und Gavin King sind gründlich vorgegangen, ohne jedoch Situationen zu beschreiben, denen man niemals begegnen wird. Es lohnt sich, alles zu lesen. Das Buch ist in einem lehrreichen Stil verfasst: Es wird ernsthaft versucht, nichts im Dunkeln zu lassen. Die Tatsache, dass es für die Verwendung von Hibernate sowohl mit als auch ohne JPA geschrieben wurde, stellt eine Herausforderung für diejenigen dar, die sich nur für die eine oder die andere dieser Technologien interessieren. So beschreiben die Autoren beispielsweise anhand zahlreicher Beispiele die Relational/Objekt-Brücke in beiden Kontexten. Die verwendeten Konzepte sind sehr ähnlich, da JPA stark von Hibernate inspiriert wurde. Es gibt jedoch einige Unterschiede. Diese sind so groß, dass etwas, das für Hibernate gilt, für JPA möglicherweise nicht mehr zutrifft, was beim Leser Verwirrung stiften kann.</p>
+<p>Die Autoren liefern Beispiele für dreischichtige Anwendungen im Kontext eines EJB3-Containers. Sie gehen nicht auf Spring ein. Anhand eines Beispiels werden wir jedoch sehen, dass Spring einfacher zu verwenden ist und einen größeren Anwendungsbereich hat als der in [<strong>ref1</strong>] verwendete JBoss EJB3-Container. Nichtsdestotrotz ist <strong>„Java Persistence with</strong> Hibernate“ ein ausgezeichnetes Buch, das ich aufgrund der darin vermittelten Grundlagen zu ORMs jedem empfehlen kann.</p>
+<p>Die Verwendung eines ORM ist für Anfänger komplex.</p>
+<ul>
+<li>Es gibt Konzepte, die man verstehen muss, um die Relational-Objekt-Brücke zu konfigurieren. </li>
+<li>Da ist das Konzept des Persistenzkontexts mit seinen Begriffen von Objekten im „persistierten“, „getrennten“ oder „neuen“ Zustand</li>
+<li>Es gibt die Mechanismen rund um die Persistenz (Transaktionen, Verbindungspools), typischerweise Dienste, die von einem Container bereitgestellt werden</li>
+<li>Es gibt leistungsbezogene Einstellungen, die konfiguriert werden müssen (Second-Level-Cache)</li>
+<li>...</li>
+</ul>
+<p>Wir werden diese Konzepte anhand von Beispielen vorstellen. Wir werden nicht tief in die dahinterstehende Theorie eintauchen. Unser Ziel ist es lediglich, dem Leser in jedem Fall zu ermöglichen, das Beispiel zu verstehen und so zu verinnerlichen, dass er selbst Änderungen vornehmen oder es in einem anderen Kontext anwenden kann.</p>
+<h2 id="13-verwendete-tools">1.3. <span style="color: #4f81bd">Verwendete Tools</span></h2>
+<p>Die Beispiele in diesem Dokument verwenden die folgenden Werkzeuge. Einige davon werden in den Anhängen beschrieben (Download, Installation, Konfiguration, Verwendung). In solchen Fällen geben wir die Absatz- und Seitenzahl an.</p>
+<ul>
+<li>ein JDK 1.6 (<a href="#java"><u><span style="color: #0563c1">Abschnitt 5.1</span></u></a>)</li>
+<li>die Java-Entwicklungs-IDE Eclipse 3.2.2 (<a href="#eclipse322"><u><span style="color: #0563c1">Abschnitt 5.2</span></u></a>)</li>
+<li>das Eclipse WTP-Plugin (Web Tools Package) (<a href="#eclipse-callisto"><u><span style="color: #0563c1">Abschnitt 5.2.3</span></u></a>)</li>
+<li>Eclipse SQL Explorer-Plugin (<a href="#sqlexplorer"><u><span style="color: #0563c1">Abschnitt 5.2.6</span></u></a>)</li>
+<li>das Eclipse-Hibernate-Tools-Plugin (<a href="#hibernate-tools"><u><span style="color: #0563c1">Abschnitt 5.2.5</span></u></a>)</li>
+<li>das Eclipse-TestNG-Plugin (<a href="#testng"><u><span style="color: #0563c1">Abschnitt 5.2.4</span></u></a>)</li>
+<li>Tomcat 5.5.23 Servlet-Container (<a href="#tomcat55"><u><span style="color: #0563c1">Abschnitt 5.3</span></u></a>)</li>
+<li>Firebird 2.1 DBMS (<a href="#firebird20"><u><span style="color: #0563c1">Abschnitt 5.4</span></u></a>)</li>
+<li>MySQL 5 DBMS (<a href="#mysql5"><u><span style="color: #0563c1">Abschnitt 5.5</span></u></a>)</li>
+<li>PostgreSQL-DBMS (<a href="#postgresql"><u><span style="color: #0563c1">Abschnitt 5.6</span></u></a>)</li>
+<li>Oracle 10g Express DBMS (<a href="#oracle10g"><u><span style="color: #0563c1">Abschnitt 5.7</span></u></a>)</li>
+<li>SQL Server 2005 Express DBMS (<a href="#sqlserver2005"><u><span style="color: #0563c1">Abschnitt 5.8</span></u></a>)</li>
+<li>HSQLDB-DBMS (<a href="#hsqldb"><u><span style="color: #0563c1">Abschnitt 5.9</span></u></a>)</li>
+<li>Apache Derby DBMS (<a href="#db-derby"><u><span style="color: #0563c1">Abschnitt 5.10</span></u></a>)</li>
+<li>Spring 2.1 (<a href="#spring2"><u><span style="color: #0563c1">Abschnitt 5.11</span></u></a>)</li>
+<li>JBoss EJB3-Container (<a href="#jbossejb3"><u><span style="color: #0563c1">Abschnitt 5.12</span></u></a>)</li>
+</ul>
+<p><a id="refheadingtoc2727472412707654"></a>
+<a id="dvp-jpa-exemples"></a></p>
+<h2 id="14-beispiel-e-herunterladen">1.4. <span style="color: #4f81bd">Beispiel-E- herunterladen</span></h2>
+<p>Auf der Website zu diesem Dokument können die behandelten Beispiele als ZIP-Datei <a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBzEAmMYmfsS6hfv1vS5xTyAZXbc04wXWuR9E9VBNnyLaA?e=XFHdE4"><u><span style="color: #0563c1">heruntergeladen werden</span></u></a>, die nach dem Entpacken den folgenden Ordner erstellt:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006A2000001C4C509CA4E.png" width="680" height="181" style="display:inline-block; margin:4px;width:17.997cm;height:4.791cm;" class="odt-zoomable" data-zoom-src="images/10000000000006A2000001C4C509CA4E.png" /></td></tr></table>
+
+<ul>
+<li>in [1]: die Verzeichnisstruktur der Beispiele</li>
+<li>in [2]: Der Ordner &lt;annexes&gt; enthält die im Abschnitt ANHÄNGE, <a href="#annexes"><u><span style="color: #0563c1">Absatz 5</span></u></a>, vorgestellten Elemente. Insbesondere enthält der Ordner &lt;jdbc&gt; die JDBC-Treiber für die in den Tutorial-Beispielen verwendeten DBMS.</li>
+<li>in [3]: Der Ordner &lt;lib&gt; fasst die verschiedenen vom Tutorial verwendeten .jar-Archive in 5 Ordner zusammen</li>
+<li>[4]: Der Ordner &lt;lib/divers&gt; enthält die Archive:
+        - JDBC-Treiber für die DBMS
+        - für das Unit-Testing-Tool [TestNG]
+        - das Logging-Tool [log4j]</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006AB000002A2606FA89D.png" width="680" height="269" style="display:inline-block; margin:4px;width:17.997cm;height:7.107cm;" class="odt-zoomable" data-zoom-src="images/10000000000006AB000002A2606FA89D.png" /></td></tr></table>
+
+<ul>
+<li>in [5]: die Archive für die JPA/Hibernate-Implementierung und die von Hibernate benötigten Tools von Drittanbietern</li>
+<li>in [6]: die Archive für die JPA/TopLink-Implementierung</li>
+<li>in [7]: die Spring 2.x-Archive und die von Spring benötigten Tools von Drittanbietern</li>
+<li>in [8]: die Archive des JBoss EJB3-Containers</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000064A000001D485AAE99C.png" width="680" height="198" style="display:inline-block; margin:4px;width:17.997cm;height:5.232cm;" class="odt-zoomable" data-zoom-src="images/100000000000064A000001D485AAE99C.png" /></td></tr></table>
+
+<ul>
+<li>in [9]: Der Ordner &lt;hibernate&gt; enthält Beispiele für die Verwendung der JPA/Hibernate-Persistenzschicht</li>
+<li>in [10]: Der Ordner &lt;hibernate/direct&gt; enthält Beispiele, in denen die JPA-Schicht direkt mit einem Programm vom Typ [Main] verwendet wird.</li>
+<li>in [11] und [12]: Beispiele, in denen die JPA-Schicht über [business]- und [DAO]-Schichten in einer mehrschichtigen Architektur verwendet wird, was dem Standardanwendungsfall entspricht. Die von den [business]- und [DAO]-Schichten genutzten Dienste (Verbindungspool, Transaktionsmanager) werden entweder von Spring [11] oder von JBoss EJB3 [12] bereitgestellt.</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006370000012F4402DCE1.png" width="680" height="130" style="display:inline-block; margin:4px;width:17.997cm;height:3.427cm;" class="odt-zoomable" data-zoom-src="images/10000000000006370000012F4402DCE1.png" /></td></tr></table>
+
+<ul>
+<li>In [13]: Der Ordner &lt;toplink&gt; enthält die Beispiele aus dem Ordner &lt;hibernate&gt; [9], diesmal jedoch mit einer JPA/Toplink-Persistenzschicht anstelle von JPA/Hibernate. In [13] gibt es keinen Ordner &lt;jbossejb3&gt;, da es nicht möglich war, ein funktionierendes Beispiel zu erstellen, bei dem die Persistenzschicht von Toplink und die Dienste vom JBoss EJB3-Container bereitgestellt werden.</li>
+<li>In [14]: Ein Ordner &lt;web&gt; enthält drei Beispiele für Webanwendungen mit einer JPA-Persistenzschicht:</li>
+<li>[15]: ein Beispiel mit Spring / JPA / Hibernate</li>
+<li>[16]: dasselbe Beispiel mit Spring / JPA / Toplink</li>
+<li>[17]: dasselbe Beispiel mit JBoss EJB3 / JPA / Hibernate. Dieses Beispiel funktioniert nicht, wahrscheinlich aufgrund eines ungelösten Konfigurationsproblems. Es wurde dennoch aufgenommen, damit der Leser es untersuchen und möglicherweise eine Lösung für dieses Problem finden kann.</li>
+</ul>
+<p>Das Tutorial bezieht sich häufig auf diese Verzeichnisstruktur, insbesondere beim Testen der behandelten Beispiele. Den Lesern wird empfohlen, diese Beispiele herunterzuladen und zu installieren. Im Folgenden bezeichnen wir die oben beschriebene Verzeichnisstruktur als &lt;<strong>examples</strong>&gt;.</p>
+<p><a id="eclipse-libraries"></a></p>
+<h2 id="15-eclipse-projektkonfiguration-fur-die-beispiele">1.5. <span style="color: #4f81bd">-Eclipse-Projektkonfiguration für die Beispiele</span></h2>
+<p>Die Beispiele verwenden „Benutzer“-Bibliotheken. Dabei handelt es sich um .jar-Archive, die unter einem einzigen Namen zusammengefasst sind. Wenn eine solche Bibliothek in <em>den Klassenpfad</em> eines Java-Projekts aufgenommen wird, werden alle darin enthaltenen Archive ebenfalls in diesen Klassenpfad aufgenommen. Sehen wir uns an, wie dies in Eclipse funktioniert:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000007340000019CF066E0F9.png" width="680" height="152" style="display:inline-block; margin:4px;width:17.997cm;height:4.022cm;" class="odt-zoomable" data-zoom-src="images/10000000000007340000019CF066E0F9.png" /></td></tr></table>
+
+<ul>
+<li>in [1]: [Fenster / Einstellungen / Java / Build-Pfad / Benutzerbibliotheken]</li>
+<li>in [2]: Erstellen Sie eine neue Bibliothek</li>
+<li>in [3]: Geben Sie ihr einen Namen und bestätigen Sie</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000004CB000001A00A6A37FB.png" width="614" height="208" style="display:inline-block; margin:4px;width:16.233cm;height:5.503cm;" class="odt-zoomable" data-zoom-src="images/10000000000004CB000001A00A6A37FB.png" /></td></tr></table>
+
+<ul>
+<li>in [4]: Wählen Sie die JARs aus, die Teil der Bibliothek [jpa-divers] sein sollen</li>
+<li>in [5]: Wählen Sie alle JARs aus dem Ordner &lt;examples&gt;/lib/divers aus</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000654000001910A67AD0A.png" width="680" height="168" style="display:inline-block; margin:4px;width:17.997cm;height:4.456cm;" class="odt-zoomable" data-zoom-src="images/1000000000000654000001910A67AD0A.png" /></td></tr></table>
+
+<ul>
+<li>in [6]: Die Benutzerbibliothek [jpa-divers] wurde definiert</li>
+<li>in [7]: Wiederholen Sie den Vorgang, um 4 weitere Bibliotheken zu erstellen:</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Bibliothek</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Bibliothek-JAR-Ordner</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jpa-hibernate
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/hibernate</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>jpa-toplink
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/toplink</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>jpa-spring
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/spring</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>jpa-jbossejb3
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/jbossejb3</div></td></tr></table>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Dieses Tutorial, verfasst von <strong>Serge Tahé</strong>, wird der Öffentlichkeit unter den Bedingungen der
+<em>Creative Commons Namensnennung – Nicht kommerziell –
+Weitergabe unter gleichen Bedingungen 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
