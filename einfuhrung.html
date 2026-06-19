@@ -12,13 +12,13 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/de-jpa-juin-2007/einleitung.html">
+        <link rel="canonical" href="https://stahe.github.io/de-jpa-juin-2007/einfuhrung.html">
       
       
         <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="-jpa-entitaten.html">
+        <link rel="next" href="die-entitaten-jpa.html">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>1. Einleitung - Persistenz in Java 5: Ein praktischer Leitfaden</title>
+        <title>1. Einführung - Persistenz in Java 5: Ein praktischer Leitfaden</title>
       
     
     
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-einleitung" class="md-skip">
+        <a href="#1-einfuhrung" class="md-skip">
           Skip to content
         </a>
       
@@ -130,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1. Einleitung
+              1. Einführung
             
           </span>
         </div>
@@ -321,7 +321,7 @@
   <span class="md-ellipsis">
     
   
-    1. Einleitung
+    1. Einführung
   
 
     
@@ -332,14 +332,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="einleitung.html" class="md-nav__link md-nav__link--active">
+      <a href="einfuhrung.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    1. Einleitung
+    1. Einführung
   
 
     
@@ -376,10 +376,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-literaturverzeichnis" class="md-nav__link">
+  <a href="#12-literaturhinweise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2. Literaturverzeichnis
+        1.2. Literaturhinweise
       
     </span>
   </a>
@@ -398,10 +398,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-beispiel-e-herunterladen" class="md-nav__link">
+  <a href="#14-beispiel-en-herunterladen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.4. Beispiel-E- herunterladen
+        1.4. Beispiel- en herunterladen
       
     </span>
   </a>
@@ -409,10 +409,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#15-eclipse-projektkonfiguration-fur-die-beispiele" class="md-nav__link">
+  <a href="#15-konfiguration-der-eclipse-projekte-fur-die-beispiele" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.5. -Eclipse-Projektkonfiguration für die Beispiele
+        1.5. Konfiguration der Eclipse- -Projekte für die Beispiele
       
     </span>
   </a>
@@ -434,14 +434,14 @@
   
   
     <li class="md-nav__item">
-      <a href="-jpa-entitaten.html" class="md-nav__link">
+      <a href="die-entitaten-jpa.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2.  JPA-Entitäten
+    2. Die Entitäten JPA
   
 
     
@@ -552,182 +552,181 @@
 
 
 
-<h1 id="1-einleitung">1. <span style="color: #365f91">Einleitung</span></h1>
+<h1 id="1-einfuhrung">1. <span style="color: #365f91">Einführung</span></h1>
 <h2 id="11-ziele">1.1. <span style="color: #4f81bd">Ziele</span></h2>
-<p>Das Dokument ist als PDF |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQDTu0nYA1oZTpMR-GGSETa1AYQ_LOtdvFSgxXHK7R777T4?e=hZmBCP">HIER</a>| verfügbar.</p>
-<p>Die Beispiele im Dokument sind |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBzEAmMYmfsS6hfv1vS5xTyAZXbc04wXWuR9E9VBNnyLaA?e=bfo9IO">HIER</a>| verfügbar.</p>
-<p>Ziel ist es, die wichtigsten Konzepte der Datenpersistenz unter Verwendung der JPA-API (Java Persistence API) zu erörtern. Nach der Lektüre dieses Dokuments und dem Ausprobieren der Beispiele sollte der Leser über die notwendigen Grundlagen verfügen, um dann auf eigenen Beinen stehen zu können.</p>
-<p>Die JPA-API ist relativ neu. Sie ist erst seit JDK 1.5 verfügbar. Die JPA-Schicht hat ihren Platz in einer mehrschichtigen Architektur. Betrachten wir eine recht gängige dreischichtige Architektur:</p>
+<p>Die PDF des Dokuments ist verfügbar |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQDTu0nYA1oZTpMR-GGSETa1AYQ_LOtdvFSgxXHK7R777T4?e=XE2CtX">HIER</a>|.</p>
+<p>Die Beispiele des Dokuments sind unter |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBzEAmMYmfsS6hfv1vS5xTyAZXbc04wXWuR9E9VBNnyLaA?e=ddvrW3">HIER</a>| verfügbar.</p>
+<p>Hier sollen die wichtigsten Konzepte der Datenpersistenz mit der API JPA (Java Persistence API) vorgestellt werden. Nach der Lektüre dieses Dokuments und dem Ausprobieren der Beispiele sollte der Leser über die notwendigen Grundlagen verfügen, um anschließend auf eigenen Beinen stehen zu können.</p>
+<p>Die API JPA ist relativ neu. Sie ist erst seit JDK 1.5 verfügbar. Die JPA-Schicht hat ihren Platz in einer mehrschichtigen Architektur. Betrachten wir eine solche, recht verbreitete Architektur, nämlich die dreischichtige:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006870000011D90417578.png" width="680" height="116" style="display:inline-block; margin:4px;width:17.997cm;height:3.069cm;" class="odt-zoomable" data-zoom-src="images/10000000000006870000011D90417578.png" /></td></tr></table>
 
 <ul>
-<li>Schicht [1], hier als [ui] (User Interface) bezeichnet, ist die Schicht, die über eine Swing-GUI, eine Konsolenoberfläche oder eine Weboberfläche mit dem Benutzer interagiert. Ihre Aufgabe besteht darin, Daten vom Benutzer an Schicht [2] weiterzuleiten oder vom Benutzer bereitgestellte Daten dem Benutzer zu präsentieren.</li>
-<li>Schicht [2], hier als [business] bezeichnet, ist die Schicht, die die sogenannten Geschäftsregeln – also die anwendungsspezifische Logik – anwendet, ohne sich darum zu kümmern, woher die empfangenen Daten stammen oder wohin die erzeugten Ergebnisse gelangen.</li>
-<li>Schicht [3], hier als [DAO] (Data Access Object) bezeichnet, ist die Schicht, die Schicht [2] mit vorab gespeicherten Daten (Dateien, Datenbanken usw.) versorgt und einen Teil der von Schicht [2] bereitgestellten Ergebnisse speichert.</li>
-<li>Die [JDBC]-Schicht ist die in Java verwendete Standardschicht für den Zugriff auf Datenbanken. Diese wird gemeinhin als JDBC-Treiber des DBMS bezeichnet.</li>
+<li>Die Schicht [1], hier als [ui] (User Interface) bezeichnet, ist die Schicht, die über eine grafische Swing-Oberfläche, eine Konsolenoberfläche oder eine Weboberfläche mit dem Benutzer kommuniziert. Ihre Aufgabe besteht darin, vom Benutzer stammende Daten an die Schicht [2] weiterzuleiten oder dem Benutzer Daten anzuzeigen, die von der Schicht [2] bereitgestellt werden.</li>
+<li>Die Schicht [2], hier als [metier] bezeichnet, ist die Schicht, die die sogenannten Geschäftsregeln (c.a.d) anwendet. die anwendungsspezifische Logik, ohne sich darum zu kümmern, woher die ihr übergebenen Daten stammen oder wohin die von ihr erzeugten Ergebnisse gelangen.</li>
+<li>Die Schicht [3], hier als [dao] (Data Access Object) bezeichnet, ist die Schicht, die der Schicht [2] vorab gespeicherte Daten (Dateien, Datenbanken, ...) und die einige der von der Schicht [2] gelieferten Ergebnisse speichert.</li>
+<li>Die Schicht [JDBC] ist die in Java verwendete Standardschicht für den Zugriff auf Datenbanken. Sie wird üblicherweise als JDBC-Treiber von SGBD bezeichnet.</li>
 </ul>
-<p>Es wurden zahlreiche Anstrengungen unternommen, um Entwicklern das Schreiben dieser verschiedenen Schichten zu erleichtern. Unter diesen zielt JPA darauf ab, die Entwicklung der [DAO]-Schicht zu vereinfachen, die sogenannte persistente Daten verwaltet, daher auch der Name der API (Java Persistence API). Eine Lösung, die in den letzten Jahren in diesem Bereich an Bedeutung gewonnen hat, ist <strong>Hibernate</strong>:</p>
+<p>Es wurden zahlreiche Anstrengungen unternommen, um den Entwicklern das Schreiben dieser verschiedenen Schichten zu erleichtern. Unter diesen zielt JPA darauf ab, die Entwicklung der Schicht [dao] zu vereinfachen, die die sogenannten persistenten Daten verwaltet – daher auch der Name API (Java Persistence API). Eine Lösung, die sich in den letzten Jahren in diesem Bereich durchgesetzt hat, ist <strong>Hibernate</strong>:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006950000011E3D831AFC.png" width="680" height="115" style="display:inline-block; margin:4px;width:17.997cm;height:3.055cm;" class="odt-zoomable" data-zoom-src="images/10000000000006950000011E3D831AFC.png" /></td></tr></table>
 
-<p>Die [Hibernate]-Schicht befindet sich zwischen der vom Entwickler geschriebenen [DAO]-Schicht und der [JDBC]-Schicht. Hibernate ist ein ORM (Object-Relational Mapping), ein Werkzeug, das die relationale Welt der Datenbanken und die Welt der von Java manipulierten Objekte miteinander verbindet. Der Entwickler der [DAO]-Schicht sieht weder die [JDBC]-Schicht noch die Datenbanktabellen, deren Inhalt er nutzen möchte. Er sieht nur die Objektdarstellung der Datenbank, die von der [Hibernate]-Schicht bereitgestellt wird. Die Brücke zwischen den Datenbanktabellen und den von der [DAO]-Schicht manipulierten Objekten wird hauptsächlich auf zwei Arten hergestellt:</p>
+<p>Die Schicht [Hibernate] befindet sich zwischen der vom Entwickler geschriebenen Schicht [dao] und der Schicht [Jdbc]. Hibernate ist ein ORM (Object-Relational Mapping), ein Tool, das eine Brücke zwischen der relationalen Welt der Datenbanken und der Welt der von Java verarbeiteten Objekte schlägt. Der Entwickler der Schicht [dao] sieht weder die Schicht [Jdbc] noch die Datenbanktabellen, deren Inhalt er nutzen möchte. Er sieht lediglich das Objektabbild der Datenbank, das von der Schicht [Hibernate] bereitgestellt wird. Die Verbindung zwischen den Datenbanktabellen und den von der Schicht [dao] verarbeiteten Objekten wird hauptsächlich auf zwei Arten hergestellt:</p>
 <ul>
-<li>über Konfigurationsdateien im XML-Stil</li>
-<li>durch Java-Annotationen im Code, eine Technik, die erst seit JDK 1.5 verfügbar ist</li>
+<li>über Konfigurationsdateien vom Typ XML</li>
+<li>durch Java-Annotationen im Code, eine Technik, die erst ab JDK 1.5 verfügbar ist</li>
 </ul>
-<p>Die [Hibernate]-Schicht ist eine Abstraktionsschicht, die so transparent wie möglich gestaltet ist. Das ideale Ziel ist es, dass der Entwickler der [DAO]-Schicht überhaupt nicht bemerkt, dass er mit einer Datenbank arbeitet. Dies ist möglich, wenn er nicht selbst die Konfiguration schreibt, die die relationale Welt und die Objektwelt miteinander verbindet. Die Konfiguration dieser Brücke ist recht heikel und erfordert etwas Erfahrung.</p>
-<p>Die [4]-Objektschicht, die die Datenbank widerspiegelt, wird als „Persistenzkontext“ bezeichnet. Eine auf Hibernate basierende [DAO]-Schicht führt Persistenzoperationen (CRUD: Create, Read, Update, Delete) an den Objekten im Persistenzkontext durch; diese Operationen werden von Hibernate in SQL-Anweisungen übersetzt. Für Datenbankabfragen (SQL SELECT) stellt Hibernate den Entwicklern eine HQL (Hibernate Query Language) zur Verfügung, um den Persistenzkontext [4] statt der Datenbank selbst abzufragen.</p>
-<p>Hibernate ist beliebt, aber komplex zu beherrschen. Die Lernkurve, die oft als einfach dargestellt wird, ist in Wirklichkeit ziemlich steil. Sobald man eine Datenbank mit Tabellen hat, die Eins-zu-Viele- oder Viele-zu-Viele-Beziehungen aufweisen, übersteigt die Konfiguration der Relational-zu-Objekt-Brücke die Fähigkeiten eines durchschnittlichen Anfängers. Konfigurationsfehler können dann zu Anwendungen mit schlechter Performance führen.</p>
+<p>Die Schicht [Hibernate] ist eine Abstraktionsschicht, die so transparent wie möglich sein soll. Das angestrebte Ideal ist, dass der Entwickler der [dao]-Schicht völlig ignorieren kann, dass er mit einer Datenbank arbeitet. Dies ist möglich, wenn er nicht selbst die Konfiguration schreibt, die die Brücke zwischen der relationalen und der Objektwelt schlägt. Die Konfiguration dieser Brücke ist recht knifflig und erfordert eine gewisse Übung.</p>
+<p>Die Objektschicht [4], die der Schicht BD entspricht, wird als „Persistenzkontext“ bezeichnet. Eine auf Hibernate basierende Schicht [dao] führt Persistenzaktionen (CRUD: create – read – update – delete) an den Objekten des Persistenzkontexts durch, wobei diese Aktionen von Hibernate in Befehle SQL übersetzt werden. Für Abfragen an der Datenbank (SQL Select) stellt Hibernate dem Entwickler eine Sprache (Hibernate Query Language) zur Verfügung, um den Persistenzkontext abzufragen und nicht die Datenbank selbst.</p>
+<p>Hibernate ist beliebt, aber schwer zu beherrschen. Die Lernkurve, die oft als einfach dargestellt wird, ist in Wirklichkeit ziemlich steil. Sobald man eine Datenbank mit Tabellen hat, die Eins-zu-Viele- oder Viele-zu-Viele-Beziehungen aufweisen, ist die Konfiguration der Relational-Objekt-Brücke nicht mehr für jeden Anfänger geeignet. Konfigurationsfehler können dann zu leistungsschwachen Anwendungen führen.</p>
 <p>In der kommerziellen Welt gab es ein Produkt namens Toplink, das Hibernate entsprach:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006C20000012271EFE4FA.png" width="680" height="114" style="display:inline-block; margin:4px;width:17.997cm;height:3.016cm;" class="odt-zoomable" data-zoom-src="images/10000000000006C20000012271EFE4FA.png" /></td></tr></table>
 
-<p>Angesichts des Erfolgs von ORM-Produkten beschloss Sun, der Entwickler von Java, eine ORM-Schicht mittels einer Spezifikation namens JPA zu standardisieren, die zusammen mit Java 5 veröffentlicht wurde. Die JPA-Spezifikation wurde sowohl von <strong>„ “ Toplink</strong> als auch von <strong>Hibernate</strong> implementiert. Toplink, das ursprünglich ein kommerzielles Produkt war, ist inzwischen Open Source. Mit JPA sieht die bisherige Architektur nun wie folgt aus:</p>
+<p>Angesichts des Erfolgs der ORM-Produkte beschloss Sun, der Entwickler von Java, eine ORM-Schicht über eine Spezifikation namens JPA zu standardisieren, die zeitgleich mit Java 5 erschien. Die Spezifikation JPA wurde sowohl von <strong>Toplink</strong> als auch von <strong>Hibernate</strong> implementiert. Toplink, das ursprünglich ein kommerzielles Produkt war, ist inzwischen zu einem Open-Source-Produkt geworden. Mit JPA sieht die bisherige Architektur nun wie folgt aus:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006BD00000122CB1D6B40.png" width="680" height="114" style="display:inline-block; margin:4px;width:17.997cm;height:3.027cm;" class="odt-zoomable" data-zoom-src="images/10000000000006BD00000122CB1D6B40.png" /></td></tr></table>
 
-<p>Die [DAO]-Schicht interagiert nun mit der JPA-Spezifikation, einer Reihe von Schnittstellen. Entwickler haben von dieser Standardisierung profitiert. Früher mussten Entwickler, wenn sie ihre ORM-Schicht änderten, auch ihre [DAO]-Schicht ändern, die für die Interaktion mit einem bestimmten ORM geschrieben worden war. Jetzt schreiben sie eine [DAO]-Schicht, die mit einer JPA-Schicht interagiert. Unabhängig davon, welches Produkt die JPA-Schicht implementiert, bleibt die Schnittstelle zur [DAO]-Schicht dieselbe.</p>
-<p>Dieses Dokument stellt JPA-Beispiele aus verschiedenen Bereichen vor:</p>
+<p>Die Schicht [dao] kommuniziert nun mit der Spezifikation JPA, einer Sammlung von Schnittstellen. Der Entwickler profitiert dadurch von einer besseren Standardisierung. Früher musste er, wenn er seine Schicht ORM änderte, auch seine Schicht [dao] ändern, die für die Kommunikation mit einer bestimmten ORM-Schicht geschrieben worden war. Nun schreibt er eine Schicht [dao], die mit einer Schicht JPA kommuniziert. Unabhängig davon, welches Produkt diese Schicht implementiert, bleibt die Schnittstelle der Schicht JPA, die der Schicht [dao] zur Verfügung gestellt wird, unverändert.</p>
+<p>Dieses Dokument stellt Beispiele für JPA in verschiedenen Bereichen vor:</p>
 <ul>
-<li>Zunächst konzentrieren wir uns auf die Relational-Objekt-Brücke, die die ORM-Schicht aufbaut. Diese wird mithilfe von Java-5-Annotationen für Datenbanken erstellt, in denen wir Tabellenbeziehungen vom Typ<ul>
+<li>Zunächst befassen wir uns mit der Relational-Objekt-Brücke, die die Schicht ORM aufbaut. Diese wird mithilfe von Java-5-Annotationen für Datenbanken erstellt, in denen Beziehungen zwischen Tabellen vom Typ<ul>
 <li>Eins-zu-Eins</li>
 <li>Eins-zu-Viele</li>
-<li>viele-zu-viele </li>
+<li>mehrere zu mehreren </li>
 </ul>
 </li>
 </ul>
-<p>Um diesen Bereich zu veranschaulichen, erstellen wir die folgenden Testarchitekturen:</p>
+<p>Zur Veranschaulichung dieses Bereichs werden wir folgende Testarchitekturen erstellen:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006BF000001181CBAA76F.png" width="680" height="110" style="display:inline-block; margin:4px;width:17.997cm;height:2.917cm;" class="odt-zoomable" data-zoom-src="images/10000000000006BF000001181CBAA76F.png" /></td></tr></table>
 
-<p>Unsere Testprogramme werden Konsolenanwendungen sein, die die JPA-Schicht direkt abfragen. Dabei werden wir die wichtigsten Methoden der JPA-Schicht untersuchen. Wir werden in einer sogenannten „Java SE“-Umgebung (Standard Edition) arbeiten. JPA funktioniert sowohl in Java SE- als auch in Java EE5-Umgebungen (Enterprise Edition).</p>
+<p>Unsere Testprogramme werden Konsolenanwendungen sein, die direkt auf die Schicht JPA zugreifen. Dabei werden wir die wichtigsten Methoden der Schicht JPA kennenlernen. Wir befinden uns in einer sogenannten „Java SE“-Umgebung (Standard Edition). JPA läuft sowohl in einer Java SE- als auch in einer Java EE5-Umgebung (Enterprise Edition).</p>
 <ul>
-<li>Sobald wir sowohl die Konfiguration der Relational/Object-Brücke als auch die Verwendung der Methoden der JPA-Schicht beherrschen, kehren wir zu einer traditionelleren mehrschichtigen Architektur zurück:</li>
+<li>Sobald wir sowohl die Konfiguration der Relational-Objekt-Brücke als auch die Verwendung der Methoden der JPA-Schicht beherrschen, werden wir zu einer klassischeren mehrschichtigen Architektur zurückkehren:</li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006F6000001712DB9AB08.png" width="680" height="141" style="display:inline-block; margin:4px;width:17.997cm;height:3.727cm;" class="odt-zoomable" data-zoom-src="images/10000000000006F6000001712DB9AB08.png" /></td></tr></table>
 
-<p>Der Zugriff auf die [JPA]-Schicht erfolgt über eine zweischichtige Architektur, die aus [Business]- und [DAO]-Schichten besteht. Zur Verknüpfung dieser Schichten wird das Spring-Framework [7] in Verbindung mit dem JBoss EJB3-Container verwendet.</p>
-<p>Wir haben bereits erwähnt, dass JPA sowohl in SE- als auch in EE5-Umgebungen verfügbar ist. Die Java EE5-Umgebung bietet zahlreiche Dienste für den Zugriff auf persistente Daten, darunter Verbindungspools, Transaktionsmanager und mehr. Für Entwickler kann es von Vorteil sein, diese Dienste zu nutzen. Die Java EE5-Umgebung ist noch nicht weit verbreitet (Stand: Mai 2007). Sie ist derzeit auf dem <em>Sun Application Server 9.x (Glassfish)</em> verfügbar. Ein Anwendungsserver ist im Wesentlichen ein Webanwendungsserver. Wenn Sie eine eigenständige grafische Anwendung mit Swing erstellen, können Sie die EE-Umgebung und die von ihr bereitgestellten Dienste nicht nutzen. Dies ist ein Problem. Es tauchen zunehmend „eigenständige“ EE-Umgebungen auf, d. h. solche, die außerhalb eines Anwendungsservers verwendet werden können. Dies ist bei JBoss EJB3 der Fall, das wir in diesem Dokument verwenden werden.</p>
-<p>In einer EE5-Umgebung werden die Schichten durch Objekte implementiert, die als EJBs (Enterprise Java Beans) bezeichnet werden. In früheren Versionen von EE galten EJBs (EJB 2.x) als schwer zu implementieren und zu testen und zeigten manchmal eine unzureichende Leistung. Es wird zwischen EJB 2.x-„Entity“-Beans und EJB 2.x-„Session“-Beans unterschieden. Kurz gesagt entspricht ein EJB 2.x-„Entity“ einer Zeile in einer Datenbanktabelle, und ein EJB 2.x-„Session“ ist ein Objekt, das zur Implementierung der [Business]- und [DAO]-Schichten einer mehrschichtigen Architektur verwendet wird. Einer der Hauptkritikpunkte an mit EJBs implementierten Schichten ist, dass sie nur innerhalb von EJB-Containern verwendet werden können, einem Dienst, der von der EE-Umgebung bereitgestellt wird. Dies erschwert das Unit-Testing. So würde im obigen Diagramm das Unit-Testing der mit EJBs erstellten [Business]- und [DAO]-Schichten die Einrichtung eines Anwendungsservers erfordern – ein recht umständlicher Vorgang, der den Entwickler nicht gerade dazu ermutigt, häufig Tests durchzuführen.</p>
-<p>Das Spring-Framework wurde als Antwort auf die Komplexität von EJB2 entwickelt. Spring stellt innerhalb einer SE-Umgebung eine beträchtliche Anzahl der Dienste bereit, die typischerweise von EE-Umgebungen bereitgestellt werden. So bietet Spring im Abschnitt „Datenpersistenz“, der uns hier interessiert, die Verbindungspools und Transaktionsmanager, die Anwendungen benötigen. Das Aufkommen von Spring hat eine Kultur der Unit-Tests gefördert, deren Durchführung plötzlich viel einfacher wurde. Spring ermöglicht die Implementierung von Anwendungsschichten unter Verwendung von Standard-Java-Objekten (POJOs, Plain Old/Ordinary Java Objects), wodurch deren Wiederverwendung in anderen Kontexten möglich wird. Schließlich integriert es zahlreiche Tools von Drittanbietern relativ transparent, insbesondere Persistenz-Tools wie Hibernate, iBatis, ...  </p>
-<p>Java EE 5 wurde entwickelt, um die Mängel der vorherigen EE-Spezifikation zu beheben. EJB 2.x hat sich zu EJB 3 weiterentwickelt. Dabei handelt es sich um POJOs, die mit Tags versehen sind, welche sie als spezielle Objekte kennzeichnen, wenn sie sich in einem EJB 3-Container befinden. Innerhalb des Containers kann das EJB 3 die Dienste des Containers (Verbindungspool, Transaktionsmanager usw.) nutzen. Außerhalb des EJB3-Containers wird das EJB3 zu einem Standard-Java-Objekt. Seine EJB-Annotationen werden ignoriert.</p>
-<p>Oben haben wir Spring und JBoss EJB3 als mögliche Infrastruktur (Framework) für unsere mehrschichtige Architektur dargestellt. Diese Infrastruktur stellt die Dienste bereit, die wir benötigen: einen Verbindungspool und einen Transaktionsmanager.</p>
+<p>Der Zugriff auf die Schicht [JPA] erfolgt über eine zweischichtige Architektur aus [metier] und [dao]. Das Spring-Framework [7] sowie anschließend der Container EJB3 von JBoss werden verwendet, um diese Schichten miteinander zu verknüpfen.</p>
+<p>Wir haben oben erwähnt, dass JPA in den Umgebungen SE und EE5 verfügbar ist. Die Java-Umgebung EE5 stellt zahlreiche Dienste im Bereich des Zugriffs auf persistente Daten bereit, darunter insbesondere Verbindungspools, Transaktionsmanager usw. Für Entwickler kann es interessant sein, diese Dienste zu nutzen. Die Java-Umgebung EE5 ist (Stand Mai 2007) noch nicht sehr verbreitet. Sie ist derzeit auf dem <em>Sun Application Server 9.x (Glassfish)</em> zu finden. Ein Anwendungsserver ist im Wesentlichen ein Webanwendungsserver. Wenn man eine eigenständige grafische Anwendung vom Typ Swing erstellt, kann man nicht auf die Umgebung EE und die damit verbundenen Dienste zurückgreifen. Das ist ein Problem. Es tauchen allmählich „Stand-alone“-Umgebungen wie EE und c.a.d auf. die außerhalb eines Anwendungsservers genutzt werden können. Dies gilt beispielsweise für JBos und EJB3, die wir in diesem Dokument verwenden werden.</p>
+<p>In einer EE5-Umgebung werden die Schichten durch Objekte namens EJB (Enterprise Java Bean) implementiert. In früheren Versionen von EE galten die EJB (EJB, 2.x) als schwer zu implementieren, zu testen und manchmal als leistungsschwach. Man unterscheidet zwischen den „Entity“-EJB2.x und den „Session“-EJB2.x. Kurz gesagt: Ein EJB2.x „Entity“ entspricht einer Zeile in einer Datenbanktabelle, und ein EJB2.x „Session“ ist ein Objekt, das zur Implementierung der Schichten [metier], [dao] einer mehrschichtigen Architektur. Einer der Hauptkritikpunkte an den mit EJB implementierten Schichten ist, dass sie nur innerhalb von EJB-Containern verwendet werden können, einem Dienst, der von der EE-Umgebung bereitgestellt wird. Dies erschwert das Durchführen von Unit-Tests. So sind im obigen Schema würden Unit-Tests der Schichten [metier] und [dao], die mit EJB erstellt wurden, die Einrichtung eines Anwendungsservers erfordern – ein recht aufwendiger Vorgang, der den Entwickler nicht gerade dazu motiviert, häufig Tests durchzuführen.</p>
+<p><strong>Das Spring-Framework</strong> entstand als Reaktion auf die Komplexität von EJB2. Spring stellt in einer SE-Umgebung eine Vielzahl der Dienste bereit, die üblicherweise von EE-Umgebungen bereitgestellt werden. So stellt Spring im Bereich „Datenpersistenz“, der uns hier interessiert, die Verbindungspools und Transaktionsmanager bereit, die Anwendungen benötigen. Das Aufkommen von Spring hat die Kultur der Unit-Tests gefördert, deren Umsetzung auf einen Schlag wesentlich einfacher wurde. Spring ermöglicht die Implementierung der Schichten einer Anwendung durch klassische Java-Objekte (POJO, Plain Old/Ordinary Java Object), wodurch deren Wiederverwendung in einem anderen Kontext möglich wird. Schließlich integriert es zahlreiche Tools von Drittanbietern auf recht transparente Weise, insbesondere Persistenz-Tools wie Hibernate, iBatis, ...  </p>
+<p>Java EE5 wurde entwickelt, um die Mängel der vorherigen Spezifikation EE zu beheben. Die EJB und 2.x wurden zu EJB3. Dabei handelt es sich um POJOs, die mit Annotationen versehen sind, wodurch sie zu speziellen Objekten werden, wenn sie sich in einem EJB3-Container befinden. In diesem Container kann das EJB3 die Dienste des Containers nutzen (Verbindungspool, Transaktionsmanager usw.). Außerhalb des Containers EJB3 wird das EJB3 zu einem normalen Java-Objekt. Seine Annotationen EJB werden ignoriert.</p>
+<p>Oben haben wir Spring und JBoss EJB3 als mögliche Infrastruktur (Framework) unserer mehrschichtigen Architektur dargestellt. Diese Infrastruktur stellt die von uns benötigten Dienste bereit: einen Verbindungspool und einen Transaktionsmanager.</p>
 <ul>
-<li>Bei Spring werden die Schichten mithilfe von POJOs implementiert. Diese greifen über die Abhängigkeitsinjektion in diese POJOs auf die Dienste von Spring (Verbindungspool, Transaktionsmanager) zu: Beim Erstellen injiziert Spring Referenzen auf die Dienste, die sie benötigen.</li>
+<li>Mit Spring werden die Schichten mithilfe von POJOs implementiert. Diese haben Zugriff auf die Dienste von Spring (Verbindungspool, Transaktionsmanager) durch Abhängigkeitsinjektion in diese POJOs: Beim Erstellen dieser Komponenten injiziert Spring ihnen Referenzen auf die Dienste, die sie benötigen werden.</li>
 <li>
-<p>JBoss EJB3 ist ein EJB-Container, der außerhalb eines Anwendungsservers ausgeführt werden kann. Sein Funktionsprinzip (aus Sicht des Entwicklers) ist analog zu dem für Spring beschriebenen. Wir werden nur wenige Unterschiede feststellen.</p>
+<p>JBoss EJB3 ist ein EJB-Container, der außerhalb eines Anwendungsservers betrieben werden kann. Seine Funktionsweise (aus Sicht des Entwicklers) entspricht der für Spring beschriebenen. Es gibt kaum Unterschiede.</p>
 </li>
 <li>
-<p>Wir schließen dieses Dokument mit einem Beispiel für eine dreischichtige Webanwendung ab – einfach, aber repräsentativ:</p>
+<p>Wir schließen das Dokument mit einem einfachen, aber dennoch repräsentativen Beispiel für eine dreischichtige Webanwendung ab:</p>
 </li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000071C0000016E67BAC4C9.png" width="680" height="137" style="display:inline-block; margin:4px;width:17.997cm;height:3.62cm;" class="odt-zoomable" data-zoom-src="images/100000000000071C0000016E67BAC4C9.png" /></td></tr></table>
 
-<h2 id="12-literaturverzeichnis">1.2. <span style="color: #4f81bd">Literaturverzeichnis</span></h2>
-<p>[<strong>ref1</strong>]:  <strong>Java Persistence with Hibernate, von Christian Bauer und Gavin King, erschienen bei Manning</strong>.</p>
-<p>[<strong>ref1</strong>] ist das Dokument, das als Grundlage für den Folgenden diente. Es handelt sich um ein umfassendes, über 800 Seiten starkes Buch über die Verwendung des Hibernate-ORM in zwei verschiedenen Kontexten: mit oder ohne JPA. Die Verwendung von Hibernate ohne JPA ist für Entwickler, die JDK 1.4 oder früher verwenden, tatsächlich nach wie vor relevant, da JPA erst mit JDK 1.5 eingeführt wurde.</p>
-<p>Nachdem ich mehr als drei Viertel des Buches gelesen und den Rest überflogen hatte, fiel mir auf, dass alles in diesem Werk nützlich war. Der erfahrene Hibernate-Anwender dürfte mit fast allen Informationen vertraut sein, die auf den 800 Seiten zu finden sind. Christian Bauer und Gavin King sind gründlich vorgegangen, ohne jedoch Situationen zu beschreiben, denen man niemals begegnen wird. Es lohnt sich, alles zu lesen. Das Buch ist in einem lehrreichen Stil verfasst: Es wird ernsthaft versucht, nichts im Dunkeln zu lassen. Die Tatsache, dass es für die Verwendung von Hibernate sowohl mit als auch ohne JPA geschrieben wurde, stellt eine Herausforderung für diejenigen dar, die sich nur für die eine oder die andere dieser Technologien interessieren. So beschreiben die Autoren beispielsweise anhand zahlreicher Beispiele die Relational/Objekt-Brücke in beiden Kontexten. Die verwendeten Konzepte sind sehr ähnlich, da JPA stark von Hibernate inspiriert wurde. Es gibt jedoch einige Unterschiede. Diese sind so groß, dass etwas, das für Hibernate gilt, für JPA möglicherweise nicht mehr zutrifft, was beim Leser Verwirrung stiften kann.</p>
-<p>Die Autoren liefern Beispiele für dreischichtige Anwendungen im Kontext eines EJB3-Containers. Sie gehen nicht auf Spring ein. Anhand eines Beispiels werden wir jedoch sehen, dass Spring einfacher zu verwenden ist und einen größeren Anwendungsbereich hat als der in [<strong>ref1</strong>] verwendete JBoss EJB3-Container. Nichtsdestotrotz ist <strong>„Java Persistence with</strong> Hibernate“ ein ausgezeichnetes Buch, das ich aufgrund der darin vermittelten Grundlagen zu ORMs jedem empfehlen kann.</p>
+<h2 id="12-literaturhinweise">1.2. <span style="color: #4f81bd">Literaturhinweise</span></h2>
+<p>[ref1]: <strong>„Java Persistence with Hibernate“ von Christian Bauer und Gavin King, erschienen bei Manning</strong>.</p>
+<p>[ref1] ist das Dokument, das als Grundlage für die folgenden Ausführungen diente. Es handelt sich um ein umfassendes, über 800 Seiten starkes Buch über die Verwendung von Hibernate in zwei verschiedenen Kontexten: mit oder ohne JPA. Die Verwendung von Hibernate ohne JPA ist in der Tat für Entwickler, die JDK 1.4 oder niedriger verwenden, nach wie vor aktuell, da JPA erst mit JDK 1.5 eingeführt wurde.</p>
+<p>Nachdem ich mehr als drei Viertel des Buches gelesen und den Rest überflogen habe, ist mir klar geworden, dass alles in diesem Dokument nützlich ist. Der versierte Hibernate-Anwender dürfte fast alle Informationen kennen, die auf den 800 Seiten enthalten sind. Christian Bauer und Gavin King haben sich umfassend mit dem Thema befasst, ohne jedoch Situationen zu beschreiben, denen man niemals begegnen wird. Es lohnt sich, alles zu lesen. Das Buch ist didaktisch verfasst: Es ist deutlich erkennbar, dass nichts im Dunkeln gelassen werden soll. Die Tatsache, dass es für den Einsatz von Hibernate sowohl mit als auch ohne JPA geschrieben wurde, stellt eine Herausforderung für diejenigen dar, die sich nur für die eine oder die andere dieser Technologien interessieren. So beschreiben die Autoren beispielsweise anhand zahlreicher Beispiele die Relational-Objekt-Brücke in beiden Kontexten. Die verwendeten Konzepte sind sehr ähnlich, da sich JPA stark an Hibernate orientiert hat. Es gibt jedoch einige Unterschiede. So kann es vorkommen, dass etwas, das für Hibernate gilt, für JPA nicht mehr zutrifft, was letztendlich beim Leser Verwirrung stiftet.</p>
+<p>Die Autoren zeigen Beispiele für dreischichtige Anwendungen im Kontext eines EJB3-Containers. Sie gehen nicht auf Spring ein. Anhand eines Beispiels werden wir sehen, dass Spring jedoch einfacher zu verwenden und umfassender ausgelegt ist als der in [ref1] verwendete Container JBoss EJB3. Dennoch ist <strong>„Java Persistence with</strong> Hibernate“ ein ausgezeichnetes Buch, das ich wegen all der Grundlagen, die man darin über die ORM lernt, empfehle.</p>
 <p>Die Verwendung eines ORM ist für Anfänger komplex.</p>
 <ul>
-<li>Es gibt Konzepte, die man verstehen muss, um die Relational-Objekt-Brücke zu konfigurieren. </li>
-<li>Da ist das Konzept des Persistenzkontexts mit seinen Begriffen von Objekten im „persistierten“, „getrennten“ oder „neuen“ Zustand</li>
-<li>Es gibt die Mechanismen rund um die Persistenz (Transaktionen, Verbindungspools), typischerweise Dienste, die von einem Container bereitgestellt werden</li>
-<li>Es gibt leistungsbezogene Einstellungen, die konfiguriert werden müssen (Second-Level-Cache)</li>
+<li>Man muss bestimmte Konzepte verstehen, um die Relational-Objekt-Brücke zu konfigurieren. </li>
+<li>Da ist der Begriff des Persistenzkontexts mit seinen Objekttypen in den Zuständen „persistent“, „detached“ und „neue“</li>
+<li>Es gibt die Mechanismen rund um die Persistenz (Transaktionen, Verbindungspools), in der Regel Dienste, die von einem Container bereitgestellt werden</li>
+<li>Es müssen Einstellungen zur Leistungsoptimierung vorgenommen werden (Level-2-Cache).</li>
 <li>...</li>
 </ul>
-<p>Wir werden diese Konzepte anhand von Beispielen vorstellen. Wir werden nicht tief in die dahinterstehende Theorie eintauchen. Unser Ziel ist es lediglich, dem Leser in jedem Fall zu ermöglichen, das Beispiel zu verstehen und so zu verinnerlichen, dass er selbst Änderungen vornehmen oder es in einem anderen Kontext anwenden kann.</p>
+<p>Wir werden diese Konzepte anhand von Beispielen vorstellen. Wir werden dabei nur wenige theoretische Ausführungen dazu anstellen. Unser Ziel ist es lediglich, dem Leser jedes Mal zu ermöglichen, das Beispiel zu verstehen und sich so anzueignen, dass er in der Lage ist, selbst Änderungen daran vorzunehmen oder es in einem anderen Kontext anzuwenden.</p>
 <h2 id="13-verwendete-tools">1.3. <span style="color: #4f81bd">Verwendete Tools</span></h2>
-<p>Die Beispiele in diesem Dokument verwenden die folgenden Werkzeuge. Einige davon werden in den Anhängen beschrieben (Download, Installation, Konfiguration, Verwendung). In solchen Fällen geben wir die Absatz- und Seitenzahl an.</p>
+<p>Die Beispiele in diesem Dokument verwenden die folgenden Werkzeuge. Einige davon werden in den Anhängen beschrieben (Download, Installation, Konfiguration, Verwendung). In diesem Fall werden die Absatznummer und die Seitenzahl angegeben.</p>
 <ul>
-<li>ein JDK 1.6 (<a href="#java"><u><span style="color: #0563c1">Abschnitt 5.1</span></u></a>)</li>
-<li>die Java-Entwicklungs-IDE Eclipse 3.2.2 (<a href="#eclipse322"><u><span style="color: #0563c1">Abschnitt 5.2</span></u></a>)</li>
-<li>das Eclipse WTP-Plugin (Web Tools Package) (<a href="#eclipse-callisto"><u><span style="color: #0563c1">Abschnitt 5.2.3</span></u></a>)</li>
-<li>Eclipse SQL Explorer-Plugin (<a href="#sqlexplorer"><u><span style="color: #0563c1">Abschnitt 5.2.6</span></u></a>)</li>
-<li>das Eclipse-Hibernate-Tools-Plugin (<a href="#hibernate-tools"><u><span style="color: #0563c1">Abschnitt 5.2.5</span></u></a>)</li>
-<li>das Eclipse-TestNG-Plugin (<a href="#testng"><u><span style="color: #0563c1">Abschnitt 5.2.4</span></u></a>)</li>
-<li>Tomcat 5.5.23 Servlet-Container (<a href="#tomcat55"><u><span style="color: #0563c1">Abschnitt 5.3</span></u></a>)</li>
-<li>Firebird 2.1 DBMS (<a href="#firebird20"><u><span style="color: #0563c1">Abschnitt 5.4</span></u></a>)</li>
-<li>MySQL 5 DBMS (<a href="#mysql5"><u><span style="color: #0563c1">Abschnitt 5.5</span></u></a>)</li>
-<li>PostgreSQL-DBMS (<a href="#postgresql"><u><span style="color: #0563c1">Abschnitt 5.6</span></u></a>)</li>
-<li>Oracle 10g Express DBMS (<a href="#oracle10g"><u><span style="color: #0563c1">Abschnitt 5.7</span></u></a>)</li>
-<li>SQL Server 2005 Express DBMS (<a href="#sqlserver2005"><u><span style="color: #0563c1">Abschnitt 5.8</span></u></a>)</li>
-<li>HSQLDB-DBMS (<a href="#hsqldb"><u><span style="color: #0563c1">Abschnitt 5.9</span></u></a>)</li>
-<li>Apache Derby DBMS (<a href="#db-derby"><u><span style="color: #0563c1">Abschnitt 5.10</span></u></a>)</li>
-<li>Spring 2.1 (<a href="#spring2"><u><span style="color: #0563c1">Abschnitt 5.11</span></u></a>)</li>
-<li>JBoss EJB3-Container (<a href="#jbossejb3"><u><span style="color: #0563c1">Abschnitt 5.12</span></u></a>)</li>
+<li>JDK 1.6 (Absatz<a href="anhange.html#java"><u><span style="color: #0563c1"> 5.1</span></u></a>)</li>
+<li>das Java-Entwicklungstool IDE für Eclipse 3.2.2 (Absatz<a href="anhange.html#eclipse322"><u><span style="color: #0563c1"> 5.2</span></u></a>)</li>
+<li>Eclipse-Plugin WTP (Web Tools Package) (Absatz<a href="anhange.html#eclipse-callisto"><u><span style="color: #0563c1"> 5.2.3</span></u></a>)</li>
+<li>Eclipse-Plugin SQL Explorer (Abschnitt<a href="anhange.html#sqlexplorer"><u><span style="color: #0563c1"> 5.2.6</span></u></a>)</li>
+<li>Eclipse-Plugin „Hibernate Tools“ (Abschnitt<a href="anhange.html#hibernate-tools"><u><span style="color: #0563c1"> 5.2.5</span></u></a>)</li>
+<li>Eclipse-Plugin TestNG (Abschnitt<a href="anhange.html#testng"><u><span style="color: #0563c1"> 5.2.4</span></u></a>)</li>
+<li>Tomcat 5.5.23 Servlet-Container (Abschnitt<a href="anhange.html#tomcat55"><u><span style="color: #0563c1"> 5.3</span></u></a>)</li>
+<li>SGBD Firebird 2.1 (Absatz<a href="anhange.html#firebird20"><u><span style="color: #0563c1"> 5.4</span></u></a>)</li>
+<li>SGBD MySQL5 (Absatz<a href="anhange.html#mysql5"><u><span style="color: #0563c1"> 5.5</span></u></a>)</li>
+<li>SGBD PosgreSQL (Absatz<a href="anhange.html#postgresql"><u><span style="color: #0563c1"> 5.6</span></u></a>)</li>
+<li>SGBD Oracle 10g Express (Absatz<a href="anhange.html#oracle10g"><u><span style="color: #0563c1"> 5.7</span></u></a>)</li>
+<li>SGBD SQL Server 2005 Express (Absatz<a href="anhange.html#sqlserver2005"><u><span style="color: #0563c1"> 5.8</span></u></a>)</li>
+<li>SGBD HSQLDB (Absatz<a href="anhange.html#hsqldb"><u><span style="color: #0563c1"> 5.9</span></u></a>)</li>
+<li>SGBD Apache Derby (Abschnitt<a href="anhange.html#db-derby"><u><span style="color: #0563c1"> 5.10</span></u></a>)</li>
+<li>Spring 2.1 (Abschnitt<a href="anhange.html#spring2"><u><span style="color: #0563c1"> 5.11</span></u></a>)</li>
+<li>EJB3-Container von JBoss (Abschnitt<a href="anhange.html#jbossejb3"><u><span style="color: #0563c1"> 5.12</span></u></a>)</li>
 </ul>
-<p><a id="refheadingtoc2727472412707654"></a>
-<a id="dvp-jpa-exemples"></a></p>
-<h2 id="14-beispiel-e-herunterladen">1.4. <span style="color: #4f81bd">Beispiel-E- herunterladen</span></h2>
-<p>Auf der Website zu diesem Dokument können die behandelten Beispiele als ZIP-Datei <a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBzEAmMYmfsS6hfv1vS5xTyAZXbc04wXWuR9E9VBNnyLaA?e=XFHdE4"><u><span style="color: #0563c1">heruntergeladen werden</span></u></a>, die nach dem Entpacken den folgenden Ordner erstellt:</p>
+<p><span id="dvp-jpa-exemples" name="dvp-jpa-exemples" class="odt-bookmark-anchor"></span></p>
+<h2 id="14-beispiel-en-herunterladen">1.4. <span style="color: #4f81bd"><strong>Beispiel-</strong> <strong>en herunterladen</strong></span></h2>
+<p>Auf der Website dieses Dokuments können die behandelten Beispiele als ZIP-Datei <a href="https://stahe.github.io/jpa-juin-2007/jpa-juin-2007.zip"><u><span style="color: #0563c1">heruntergeladen werden</span></u></a>, die nach dem Entpacken den folgenden Ordner erzeugt:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006A2000001C4C509CA4E.png" width="680" height="181" style="display:inline-block; margin:4px;width:17.997cm;height:4.791cm;" class="odt-zoomable" data-zoom-src="images/10000000000006A2000001C4C509CA4E.png" /></td></tr></table>
 
 <ul>
 <li>in [1]: die Verzeichnisstruktur der Beispiele</li>
-<li>in [2]: Der Ordner &lt;annexes&gt; enthält die im Abschnitt ANHÄNGE, <a href="#annexes"><u><span style="color: #0563c1">Absatz 5</span></u></a>, vorgestellten Elemente. Insbesondere enthält der Ordner &lt;jdbc&gt; die JDBC-Treiber für die in den Tutorial-Beispielen verwendeten DBMS.</li>
-<li>in [3]: Der Ordner &lt;lib&gt; fasst die verschiedenen vom Tutorial verwendeten .jar-Archive in 5 Ordner zusammen</li>
-<li>[4]: Der Ordner &lt;lib/divers&gt; enthält die Archive:
-        - JDBC-Treiber für die DBMS
-        - für das Unit-Testing-Tool [TestNG]
-        - das Logging-Tool [log4j]</li>
+<li>in [2]: Der Ordner &lt;annexes&gt; enthält Elemente, die im Abschnitt ANNEXES, Absatz<a href="anhange.html#annexes"><u><span style="color: #0563c1"> 5</span></u></a>, vorgestellt werden. Insbesondere enthält der Ordner &lt;jdbc&gt; die JDBC-Treiber aus SGBD, die für die Beispiele des Tutorials verwendet werden.</li>
+<li>in [3]: Der Ordner &lt;lib&gt; fasst die verschiedenen .jar-Dateien, die im Tutorial verwendet werden, in 5 Ordnern zusammen</li>
+<li>in [4]: Der Ordner &lt;lib/divers&gt; enthält die folgenden Archive:
+        - die JDBC-Treiber von SGBD
+        - des Unit-Test-Tools [testNG]
+        - des Protokollierungstools [log4j]</li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006AB000002A2606FA89D.png" width="680" height="269" style="display:inline-block; margin:4px;width:17.997cm;height:7.107cm;" class="odt-zoomable" data-zoom-src="images/10000000000006AB000002A2606FA89D.png" /></td></tr></table>
 
 <ul>
-<li>in [5]: die Archive für die JPA/Hibernate-Implementierung und die von Hibernate benötigten Tools von Drittanbietern</li>
-<li>in [6]: die Archive für die JPA/TopLink-Implementierung</li>
-<li>in [7]: die Spring 2.x-Archive und die von Spring benötigten Tools von Drittanbietern</li>
-<li>in [8]: die Archive des JBoss EJB3-Containers</li>
+<li>in [5]: die Archive der Hibernate-Implementierung JPA/Hibernate und der für Hibernate erforderlichen Tools von Drittanbietern</li>
+<li>in [6]: die Archive der Implementierung JPA/Toplink</li>
+<li>in [7]: die Archive von Spring (2.x) und der für Spring erforderlichen Tools von Drittanbietern</li>
+<li>in [8]: die Container-Archive EJB3 und JBoss</li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000064A000001D485AAE99C.png" width="680" height="198" style="display:inline-block; margin:4px;width:17.997cm;height:5.232cm;" class="odt-zoomable" data-zoom-src="images/100000000000064A000001D485AAE99C.png" /></td></tr></table>
 
 <ul>
-<li>in [9]: Der Ordner &lt;hibernate&gt; enthält Beispiele für die Verwendung der JPA/Hibernate-Persistenzschicht</li>
-<li>in [10]: Der Ordner &lt;hibernate/direct&gt; enthält Beispiele, in denen die JPA-Schicht direkt mit einem Programm vom Typ [Main] verwendet wird.</li>
-<li>in [11] und [12]: Beispiele, in denen die JPA-Schicht über [business]- und [DAO]-Schichten in einer mehrschichtigen Architektur verwendet wird, was dem Standardanwendungsfall entspricht. Die von den [business]- und [DAO]-Schichten genutzten Dienste (Verbindungspool, Transaktionsmanager) werden entweder von Spring [11] oder von JBoss EJB3 [12] bereitgestellt.</li>
+<li>in [9]: Der Ordner &lt;hibernate&gt; enthält die Beispiele, die mit der Persistenzschicht JPA/Hibernate bearbeitet wurden</li>
+<li>in [10]: Der Ordner &lt;hibernate/direct&gt; enthält die Beispiele, bei denen die Schicht JPA direkt mit einem Programm vom Typ [Main] genutzt wird.</li>
+<li>in [11] und [12]: Beispiele, bei denen die Schicht JPA über die Schichten [metier] und [dao] in einer mehrschichtigen Architektur genutzt wird, was dem normalen Einsatzfall entspricht. Die Dienste (Verbindungspool, Transaktionsmanager) , die von den Schichten [metier] und [dao] genutzt werden, werden entweder von Spring [11] oder von JBoss, EJB3 und [12] bereitgestellt.</li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006370000012F4402DCE1.png" width="680" height="130" style="display:inline-block; margin:4px;width:17.997cm;height:3.427cm;" class="odt-zoomable" data-zoom-src="images/10000000000006370000012F4402DCE1.png" /></td></tr></table>
 
 <ul>
-<li>In [13]: Der Ordner &lt;toplink&gt; enthält die Beispiele aus dem Ordner &lt;hibernate&gt; [9], diesmal jedoch mit einer JPA/Toplink-Persistenzschicht anstelle von JPA/Hibernate. In [13] gibt es keinen Ordner &lt;jbossejb3&gt;, da es nicht möglich war, ein funktionierendes Beispiel zu erstellen, bei dem die Persistenzschicht von Toplink und die Dienste vom JBoss EJB3-Container bereitgestellt werden.</li>
-<li>In [14]: Ein Ordner &lt;web&gt; enthält drei Beispiele für Webanwendungen mit einer JPA-Persistenzschicht:</li>
-<li>[15]: ein Beispiel mit Spring / JPA / Hibernate</li>
+<li>in [13]: Der Ordner &lt;toplink&gt; enthält die Beispiele aus dem Ordner &lt;hibernate&gt; [9], diesmal jedoch mit einer Persistenzschicht JPA/Toplink anstelle von JPA/Hibernate. Esgibt es in [13] keinen Ordner &lt;jbossejb3&gt;, da es nicht möglich war, ein Beispiel zum Laufen zu bringen, bei dem die Persistenzschicht von Toplink und die Dienste vom Container EJB3 von JBoss bereitgestellt werden.</li>
+<li>In [14]: Ein Ordner &lt;web&gt; enthält drei Beispiele für Webanwendungen mit einer Persistenzschicht JPA:</li>
+<li>[15]: Ein Beispiel mit Spring / JPA / Hibernate</li>
 <li>[16]: dasselbe Beispiel mit Spring / JPA / Toplink</li>
-<li>[17]: dasselbe Beispiel mit JBoss EJB3 / JPA / Hibernate. Dieses Beispiel funktioniert nicht, wahrscheinlich aufgrund eines ungelösten Konfigurationsproblems. Es wurde dennoch aufgenommen, damit der Leser es untersuchen und möglicherweise eine Lösung für dieses Problem finden kann.</li>
+<li>[17]: dasselbe Beispiel mit JBoss, EJB3 und JPA / Hibernate. Dieses Beispiel funktioniert nicht, wahrscheinlich aufgrund eines ungeklärten Konfigurationsproblems. Es wurde dennoch beibehalten, damit sich der Leser damit befassen und möglicherweise eine Lösung für dieses Problem finden kann.</li>
 </ul>
-<p>Das Tutorial bezieht sich häufig auf diese Verzeichnisstruktur, insbesondere beim Testen der behandelten Beispiele. Den Lesern wird empfohlen, diese Beispiele herunterzuladen und zu installieren. Im Folgenden bezeichnen wir die oben beschriebene Verzeichnisstruktur als &lt;<strong>examples</strong>&gt;.</p>
-<p><a id="eclipse-libraries"></a></p>
-<h2 id="15-eclipse-projektkonfiguration-fur-die-beispiele">1.5. <span style="color: #4f81bd">-Eclipse-Projektkonfiguration für die Beispiele</span></h2>
-<p>Die Beispiele verwenden „Benutzer“-Bibliotheken. Dabei handelt es sich um .jar-Archive, die unter einem einzigen Namen zusammengefasst sind. Wenn eine solche Bibliothek in <em>den Klassenpfad</em> eines Java-Projekts aufgenommen wird, werden alle darin enthaltenen Archive ebenfalls in diesen Klassenpfad aufgenommen. Sehen wir uns an, wie dies in Eclipse funktioniert:</p>
+<p>Das Tutorial bezieht sich häufig auf diesen Verzeichnisbaum, insbesondere beim Testen der behandelten Beispiele. Der Leser wird gebeten, diese Beispiele herunterzuladen und zu installieren. Im Folgenden bezeichnen wir den oben beschriebenen Verzeichnisbaum der Beispiele als &lt;<strong>Beispiele</strong>&gt;.</p>
+<p><span id="eclipse-libraries" name="eclipse-libraries" class="odt-bookmark-anchor"></span></p>
+<h2 id="15-konfiguration-der-eclipse-projekte-fur-die-beispiele">1.5. <span style="color: #4f81bd"><strong>Konfiguration der Eclipse-</strong> <strong>-Projekte für die Beispiele</strong></span></h2>
+<p>Die Beispiele verwenden „Benutzer“-Bibliotheken. Dabei handelt es sich um .jar-Archive, die unter einem gemeinsamen Namen zusammengefasst sind. Wenn eine solche Bibliothek in den <em>classpath</em> eines Java-Projekts aufgenommen wird, werden alle darin enthaltenen Archive in diesen Classpath aufgenommen. Sehen wir uns an, wie dies in Eclipse funktioniert:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000007340000019CF066E0F9.png" width="680" height="152" style="display:inline-block; margin:4px;width:17.997cm;height:4.022cm;" class="odt-zoomable" data-zoom-src="images/10000000000007340000019CF066E0F9.png" /></td></tr></table>
 
 <ul>
-<li>in [1]: [Fenster / Einstellungen / Java / Build-Pfad / Benutzerbibliotheken]</li>
-<li>in [2]: Erstellen Sie eine neue Bibliothek</li>
-<li>in [3]: Geben Sie ihr einen Namen und bestätigen Sie</li>
+<li>in [1]: [Window / Preferences / Java / Buld Path / User Libraries]</li>
+<li>in [2]: Man erstellt eine neue Bibliothek</li>
+<li>in [3]: Man gibt ihr einen Namen und bestätigt</li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000004CB000001A00A6A37FB.png" width="614" height="208" style="display:inline-block; margin:4px;width:16.233cm;height:5.503cm;" class="odt-zoomable" data-zoom-src="images/10000000000004CB000001A00A6A37FB.png" /></td></tr></table>
 
 <ul>
-<li>in [4]: Wählen Sie die JARs aus, die Teil der Bibliothek [jpa-divers] sein sollen</li>
-<li>in [5]: Wählen Sie alle JARs aus dem Ordner &lt;examples&gt;/lib/divers aus</li>
+<li>in [4]: Wir wählen die JAR-Dateien aus, die Teil der Bibliothek sein sollen [jpa-divers]</li>
+<li>in [5]: Wir wählen alle JAR-Dateien aus dem Ordner &lt;exemples&gt;/lib/divers aus</li>
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000654000001910A67AD0A.png" width="680" height="168" style="display:inline-block; margin:4px;width:17.997cm;height:4.456cm;" class="odt-zoomable" data-zoom-src="images/1000000000000654000001910A67AD0A.png" /></td></tr></table>
 
 <ul>
 <li>in [6]: Die Benutzerbibliothek [jpa-divers] wurde definiert</li>
-<li>in [7]: Wiederholen Sie den Vorgang, um 4 weitere Bibliotheken zu erstellen:</li>
+<li>in [7]: Wir wiederholen den Vorgang, um vier weitere Bibliotheken zu erstellen:</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Bibliothek</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Bibliothek-JAR-Ordner</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Bibliothek</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Verzeichnis der Bibliotheksdateien</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jpa-hibernate
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/hibernate</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;Beispiele&gt;/lib/hibernate</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>jpa-toplink
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/toplink</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;Beispiele&gt;/lib/toplink</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>jpa-spring
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/spring</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;Beispiele&gt;/lib/spring</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>jpa-jbossejb3
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;examples&gt;/lib/jbossejb3</div></td></tr></table>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;Beispiele&gt;/lib/jbossejb3</div></td></tr></table>
 
 
 
